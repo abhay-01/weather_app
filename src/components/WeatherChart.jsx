@@ -21,13 +21,20 @@ ChartJS.register(
   Legend
 );
 
-const WeatherChart = ({ weatherData }) => {
+const WeatherChart = ({ weatherData, tempScale }) => {
+  const convertTemp = (tempCelsius) => {
+    if (tempScale === 'Celsius') {
+      return tempCelsius;
+    }
+    return (tempCelsius * 9/5) + 32;
+  };
+
   const data = {
-    labels: weatherData.map(d => d._id),  // This could be dates or city names depending on your data
+    labels: weatherData.map(d => d._id),  // Assuming _id is the date or label
     datasets: [
       {
-        label: 'Avg Temperature (°C)',
-        data: weatherData.map(d => d.avgTemp),
+        label: `Avg Temperature (${tempScale === 'Celsius' ? '°C' : '°F'})`,
+        data: weatherData.map(d => convertTemp(d.avgTemp)),
         borderColor: 'rgba(75, 192, 192, 1)',
         fill: false,
       },

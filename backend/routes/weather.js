@@ -12,6 +12,8 @@ const apiKey = process.env.OPENWEATHERMAP_API_KEY;
 router.get('/fetch-weather', async (req, res) => {
     const cities = ['Delhi', 'Mumbai', 'Chennai', 'Bangalore', 'Kolkata', 'Hyderabad'];
     console.log(apiKey);
+    const weatherData =[];
+
 
     try {
         const fetchWeatherPromises = cities.map(async (city) => {
@@ -33,13 +35,14 @@ router.get('/fetch-weather', async (req, res) => {
 
             // Save to the database
             await weather.save();
+            weatherData.push(weather);
         });
 
         // Wait for all promises to resolve
         await Promise.all(fetchWeatherPromises);
 
 
-        res.json({ message: 'Weather data fetched and saved successfully.' });
+        res.json({ message: 'Weather data fetched and saved successfully.' , data: weatherData});
     } catch (error) {
         res.status(500).json({ message: 'Error fetching weather data', error: error.message });
     }
