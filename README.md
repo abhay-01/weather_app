@@ -1,4 +1,3 @@
-Here's a full `README.md` file tailored for your weather monitoring app:
 
 ---
 
