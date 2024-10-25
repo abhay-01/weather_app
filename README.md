@@ -5,6 +5,8 @@
 
 MetroWeatherApp is a real-time weather monitoring system for major metro cities in India, displaying daily temperature data on an interactive visual chart. The app integrates the OpenWeatherMap API to fetch weather data and provides users with options to view temperatures in both Celsius and Fahrenheit.
 
+You can access the live application here: [MetroWeatherApp](https://weather-zeotap.netlify.app/).
+
 ---
 
 ## Table of Contents
@@ -171,4 +173,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Feel free to modify this `README.md` according to your app’s actual implementation. Make sure to replace `your-username` in the GitHub URL with your actual GitHub handle and add any other features or design choices specific to your project.
+Now you can update the GitHub link and adjust any further details if needed!
